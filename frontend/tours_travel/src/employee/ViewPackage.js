@@ -1,6 +1,7 @@
 import Header from "./Header";
 import React,{useState,useEffect} from 'react'
 import {Table} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 function ViewPackage(){
 
     const[data,setData]=useState([]);
@@ -50,6 +51,12 @@ getData();
                     <td><img style={{width:100}} src={"http://localhost:8000/"+item.package_image}/></td>
                     <td>{item.status}</td>
                     <td><span onClick={()=>deleteOperation(item.p_id)} className="delete">Delete</span></td>
+                    <td>
+                        <Link to={"update/"+item.p_id}>
+                        <span  className="update">Update</span>
+                        </Link>
+                        </td>
+                        
                         </tr>
                      
                     )
